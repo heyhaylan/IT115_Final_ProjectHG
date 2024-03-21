@@ -1,11 +1,9 @@
 ---
 name: Lint
 
-on:
-  push:
-    branches:  [  main  ]
-  pull_request:
-    branches:  [  main  ]
+on:  # yamllint disable-line rule:truthy
+  push: null
+  pull_request: null
 
 jobs:
   build:
@@ -14,6 +12,9 @@ jobs:
 
     permissions:
       contents: read
+      packages: read
+      # To report GitHub Actions status checks
+      statuses: write
 
     steps:
       - name: Checkout code
